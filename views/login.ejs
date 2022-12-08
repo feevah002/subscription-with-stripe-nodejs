@@ -1,0 +1,21 @@
+<%- include ('./partials/header.ejs') %> 
+<div class="container">
+  <form  action ="/auth/login" method="POST">
+
+    <div class="mb-3">
+      <label for="InputEmail" class="form-label">Email address</label>
+      <input name="username"type="email" class="form-control" id="Email" aria-describedby="emailHelp" value="eikenna58@gmail.com">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="Password" class="form-label">Password</label>
+      <input name="password"type="password" class="form-control" id="InputPassword"value="a">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Login</button>
+  
+  </form>
+</div>
+
+<%- include ('./partials/footer.ejs') %> 

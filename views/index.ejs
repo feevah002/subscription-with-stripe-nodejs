@@ -1,0 +1,39 @@
+<%- include("./partials/header.ejs") %> 
+
+<% if(currentUser){ %> 
+  <h1>hi <%= currentUser.username %> </h1>
+  <% if(currentUser.plan === "none"){ %> 
+      <p>
+        you are currently not on any plan. Purchace a plan below
+      </p>
+      <form action="/checkout" method="post">
+        <input type="radio" name="plan" id="pro" value="pro">
+      <label for="pro">pro /$</label>
+      <br>
+      <input type="radio" name="plan" id="basic" value="basic" checked>
+      <label for="basic">basic /$</label>
+      <br>
+      <button>purchase</button>
+      </form>  
+      <p>here's your page tho</p>
+      <ul>
+        <li><a href="/<%= currentUser.plan%> "><%= currentUser.plan%></a></li>
+      </ul>
+    <% } %> 
+  <% if(currentUser.plan !== null && currentUser.plan !== "none" ){ %> 
+      <p>
+        you are currently on <%= currentUser.plan  %> 
+      </p>
+      <p>tap to access your plan page</p>
+      <ul>
+        <li><a href="/<%= currentUser.plan%> "><%= currentUser.plan%></a></li>
+      </ul>
+      <p>tap to change your plan</p>
+      <form action="/billing" method="post">
+        <button>manage billing</button>
+      </form>
+  <% } %> 
+<% } else {%>
+  please <a href="/login ">login</a> to view pages
+  <% } %>  
+<%- include("./partials/footer.ejs") %> 
